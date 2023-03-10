@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 600px;
+            margin: 30px auto;
+            border: 1px solid black;
+            padding: 30px 30px;
+            border-radius: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 20px 40px;
+            text-transform: uppercase;
+            background-color: white;
+            border-radius: 7px;
+            border: 1px solid black;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        p {
+            line-height: 26px;
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <button onclick="getPop()">Bắt đầu chương trình</button>
+    <h2>bài toán</h2>
+    <p>Kiểm tra mật độ dân số: Cho một số nguyên dương n là số dân trong một khu vực, và một số nguyên dương m là diện
+        tích
+        của khu vực đó.
+        Viết chương trình sử dụng câu lệnh if để xác định mật độ dân số của khu vực đó, biết rằng mật độ dân số được
+        tính
+        bằng số dân chia
+        cho diện tích khu vực đó. Nếu mật độ dân số lớn hơn 1000 người/km2 thì in ra “Khu vực này quá đông đúc”, ngược
+        lại
+        in ra “Khu vực này
+        không quá đông đúc”
+    </p>
+</div>
+</body>
+</html>
+
+<script>
+    function getPop() {
+        let calc;
+        let population = +prompt("Nhập số dân trong khu vực: ");
+        if (isNaN(population) || population <= 0 || population === null) {
+            alert("Nhập sai giá trị, vui lòng nhập lại!");
+        } else {
+            let area = +prompt("Nhập diện tích khu vực (km2): ");
+                if (isNaN(area) || area <= 0 || area === null) {
+                    alert("Nhập sai giá trị, vui lòng nhập lại!");
+                }
+            calc = population / 1000 / area
+        }
+
+        if (calc > 1) {
+            alert("Khu vực này quá đông đúc");
+        } else {
+            alert("Khu vực này không quá đông đúc");
+        }
+    }
+</script>
+
+<!-- -->
+<!-- -->
+<!--  -->
+<!---->
