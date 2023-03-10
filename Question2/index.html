@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 500px;
+            margin: 30px auto;
+            padding: 30px 30px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #348334;
+        }
+
+        td, th {
+            padding: 10px 10px;
+        }
+
+        input {
+            width: 97%;
+            height: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #348334;
+            padding-left: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #348334;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            background-color: #348334;
+            border-radius: 10px;
+            border: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <input type="text" id="eleCount" placeholder="Nhập số điện">
+    <button onclick="beginCalc()">Tính số tiền phải trả</button>
+    <h2>bài toán</h2>
+    <p>Viết chương trình tính số tiền điện phải trả:
+        Đầu vào là n số điện, đầu ra là số tiền điện phải trả.
+        Lưu ý số điện và giá sẽ tính theo luật hiện hành.
+    </p>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>Các mức điện</th>
+            <th>Giá bán</th>
+            <th>Tổng giá theo mức</th>
+        </tr>
+        <tr>
+            <td>Bậc 1: Cho kWh từ 0 - 50</td>
+            <td>1678</td>
+            <td>83900</td>
+        </tr>
+        <tr>
+            <td>Bậc 2: Cho kWh từ 51 - 100</td>
+            <td>1734</td>
+            <td>86700</td>
+        </tr>
+        <tr>
+            <td>Bậc 3: Cho kWh từ 101 - 200</td>
+            <td>2014</td>
+            <td>201400</td>
+        </tr>
+        <tr>
+            <td>Bậc 4: Cho kWh từ 201 - 300</td>
+            <td>2536</td>
+            <td>253600</td>
+        </tr>
+        <tr>
+            <td>Bậc 5: Cho kWh từ 301 - 400</td>
+            <td>2834</td>
+            <td>283400</td>
+        </tr>
+        <tr>
+            <td>Bậc 6: Cho kWh từ 401 trở lên</td>
+            <td>2927</td>
+            <td>-</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+
+<script>
+    function beginCalc() {
+        let totalAmount;
+        let calcElec = +document.getElementById("eleCount").value;
+        if (calcElec <= 0 || calcElec === null || isNaN(calcElec)) {
+            alert("!! Dữ liệu nhập không chính xác !!")
+        } else {
+            if (calcElec < 50) {
+                totalAmount = calcElec * 1678;
+            } else if (calcElec <= 100) {
+                totalAmount = (calcElec - 50) * 1734 + 83900;
+            } else if (calcElec <= 200) {
+                totalAmount = (calcElec - 100) * 2014 + 83900 + 86700;
+            } else if (calcElec <= 300) {
+                totalAmount = (calcElec - 200) * 2536 + 83900 + 86700 + 201400;
+            } else if (calcElec <= 400) {
+                totalAmount = (calcElec - 300) * 2834 + 83900 + 86700 + 201400 + 253600;
+            } else if (calcElec > 400) {
+                totalAmount = (calcElec - 400) * 2927 + 83900 + 86700 + 201400 + 253600 + 283400;
+            }
+            alert(`Giá tiền điện là: ${totalAmount.toLocaleString()} VNĐ`);
+        }
+    }
+</script>
