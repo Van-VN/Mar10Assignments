@@ -23,10 +23,11 @@
             width: 100%;
             padding: 20px 40px;
             text-transform: uppercase;
-            background-color: white;
+            background-color: #1f6baf;
             border-radius: 7px;
-            border: 1px solid black;
-            font-size: 24px;
+            border: 0;
+            font-size: 30px;
+            color: white;
             font-weight: bold;
         }
 
@@ -67,16 +68,16 @@
             alert("Nhập sai giá trị, vui lòng nhập lại!");
         } else {
             let area = +prompt("Nhập diện tích khu vực (km2): ");
-                if (isNaN(area) || area <= 0 || area === null) {
-                    alert("Nhập sai giá trị, vui lòng nhập lại!");
+            if (isNaN(area) || area <= 0 || area === null) {
+                alert("Nhập sai giá trị, vui lòng nhập lại!");
+            } else {
+                calc = population / 1000 / area
+                if (calc > 1) {
+                    alert("Khu vực này quá đông đúc");
+                } else {
+                    alert("Khu vực này không quá đông đúc");
                 }
-            calc = population / 1000 / area
-        }
-
-        if (calc > 1) {
-            alert("Khu vực này quá đông đúc");
-        } else {
-            alert("Khu vực này không quá đông đúc");
+            }
         }
     }
 </script>
