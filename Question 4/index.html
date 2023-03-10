@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif, serif;
+        }
+
+        .container {
+            width: 500px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 50px 30px;
+            border: 1px solid black;
+        }
+
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 100px;
+            border: 0;
+            background-color: #1f6baf;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-transform: uppercase;
+        }
+
+        p {
+            line-height: 28px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <button onclick="rectangChk()">Bấm để bắt đầu</button>
+    <h2>bài toán</h2>
+    <p>Kiểm tra tam giác: Viết chương trình sử dụng cấu trúc điều kiện để kiểm tra xem ba số nhập vào có
+        phải là độ dài của các cạnh của một tam giác hay không. Nếu đúng thì in ra loại tam giác đó
+        (tam giác đều, tam giác cân, tam giác vuông, tam giác thường).</p>
+</div>
+</body>
+</html>
+<script>
+    function rectangChk() {
+        let aLen = +prompt("Nhập chiều dài cạnh a");
+        let bLen = +prompt("Nhập chiều dài cạnh b");
+        let cLen = +prompt("Nhập chiều dài cạnh c");
+        console.log(aLen);
+        if (aLen <= 0 || bLen <= 0 || cLen <= 0 || isNaN(aLen) || isNaN(bLen) || isNaN(cLen)) {
+            alert("Nhập sai giá trị!")
+        } else if ((aLen + bLen) < cLen || (aLen + cLen) < bLen || (bLen + cLen) < aLen) {
+            alert("Tổng chiều dài 2 cạnh nhỏ hơn 1 cạnh, không phải tam giác!");
+        } else {
+            if (aLen === bLen && bLen === cLen && aLen === cLen) {
+                alert("Tam giác đều!");
+            } else if (aLen === bLen || bLen === cLen || aLen === cLen) {
+                alert("Tam giác cân!");
+            } else if ((aLen ** 2 + bLen ** 2) === (cLen ** 2) || (bLen ** 2 + cLen ** 2) === (aLen ** 2) || (aLen ** 2 + cLen ** 2) === (bLen ** 2)) {
+                alert("Tam giác vuông!");
+            } else {
+                alert("Tam giác thường");
+            }
+        }
+    }
+</script>
